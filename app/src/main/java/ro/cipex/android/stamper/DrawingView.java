@@ -65,12 +65,7 @@ public class DrawingView extends View {
         canvas.drawPaint(mBackgroundPaint);
 
         for (Shape shape : mShapes) {
-            float left = Math.min(shape.getOrigin().x, shape.getCurrent().x);
-            float right = Math.max(shape.getOrigin().x, shape.getCurrent().x);
-            float top = Math.min(shape.getOrigin().y, shape.getCurrent().y);
-            float bottom = Math.max(shape.getOrigin().y, shape.getCurrent().y);
-
-            canvas.drawRect(left, top, right, bottom, mShapePaint);
+            shape.drawOn(canvas, mShapePaint);
         }
     }
 }
