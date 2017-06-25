@@ -18,16 +18,15 @@ import java.util.List;
 public class DrawingView extends View {
     private static final String TAG = "DrawingView";
     private Shape mCurrentShape;
-    private List<Shape> mShapes = new ArrayList<>();
+    private ShapeList mShapes;
     private Paint mShapePaint;
     private Paint mBackgroundPaint;
 
-    public DrawingView(Context context) {
-        super(context);
-    }
 
     public DrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mShapes = ShapeList.get();
 
         mShapePaint = new Paint();
         mShapePaint.setColor(0x2200ff00);
