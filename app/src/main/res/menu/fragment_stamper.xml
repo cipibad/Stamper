@@ -9,4 +9,7 @@
     <item android:title="@string/clear"
           android:id="@+id/menu_item_clear"
           app:showAsAction="ifRoom"/>
+    <item android:title="@string/share"
+          android:id="@+id/menu_item_share" />
+
 </menu>
