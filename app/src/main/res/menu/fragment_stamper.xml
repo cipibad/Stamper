@@ -2,14 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:title="@string/pick_color"
+          android:id="@+id/menu_item_color_picker"
+          app:showAsAction="always" />
+
     <item android:title="@string/undo"
           android:id="@+id/menu_item_undo"
-          app:showAsAction="ifRoom"/>
+          app:showAsAction="ifRoom"
+          android:icon="@android:drawable/ic_menu_revert"/>
 
     <item android:title="@string/clear"
           android:id="@+id/menu_item_clear"
-          app:showAsAction="ifRoom"/>
+          app:showAsAction="ifRoom"
+          android:icon="@android:drawable/ic_menu_delete"/>
+
     <item android:title="@string/share"
-          android:id="@+id/menu_item_share" />
+          android:id="@+id/menu_item_share"
+          android:icon="@android:drawable/ic_menu_share"/>
 
 </menu>

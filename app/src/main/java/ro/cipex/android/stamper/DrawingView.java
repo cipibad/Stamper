@@ -2,8 +2,10 @@ package ro.cipex.android.stamper;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,27 +14,30 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * TODO: document your custom view class.
- */
 public class DrawingView extends View {
     private static final String TAG = "DrawingView";
+
     private Shape mCurrentShape;
     private ShapeList mShapes;
-    private Paint mShapePaint;
-    private Paint mBackgroundPaint;
 
+    private int mShapeColor;
+    private Paint mBackgroundPaint;
 
     public DrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         mShapes = ShapeList.get();
 
-        mShapePaint = new Paint();
-        mShapePaint.setColor(0x2200ff00);
-
         mBackgroundPaint = new Paint();
-        mBackgroundPaint.setColor(0xffeff8e0);
+        mBackgroundPaint.setColor(0xffffffff);
+    }
+
+    public int getShapeColor() {
+        return mShapeColor;
+    }
+
+    public void setShapeColor(int c) {
+        mShapeColor = c;
     }
 
     @Override
@@ -41,7 +46,7 @@ public class DrawingView extends View {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mCurrentShape = new Shape(current);
+                mCurrentShape = new Shape(current, mShapeColor);
                 mShapes.add(mCurrentShape);
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -65,7 +70,7 @@ public class DrawingView extends View {
         canvas.drawPaint(mBackgroundPaint);
 
         for (Shape shape : mShapes) {
-            shape.drawOn(canvas, mShapePaint);
+            shape.drawOn(canvas);
         }
     }
 }
