@@ -1,0 +1,7 @@
+ - move after long press
+ - zoom with two fingers (use existing gesture detector)
+ - rotation with two fingers??
+ - add mode selection:
+   - change color on each shape
+   - change color on shape type change
+   - pick color
